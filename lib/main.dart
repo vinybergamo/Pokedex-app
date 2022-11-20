@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pokedex/common/repositories/pokemon_repository.dart';
 import 'package:pokedex/features/home/container/home_container.dart';
@@ -13,7 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomeContainer(repository: PokemonRepository()),
+      home: HomeContainer(
+        repository: PokemonRepository(dio: Dio()),
+      ),
     );
   }
 }
